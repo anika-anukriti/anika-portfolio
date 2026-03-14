@@ -1,0 +1,239 @@
+/* VIDEOS SECTION */
+.videos {
+  padding-right: 10%;
+  padding-bottom: 80px;
+  padding-left: 10%;
+  text-align: center;
+}
+
+/* Glassmorphism Container */
+.videos-glass-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 46, 99, 0.2);
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Category Tabs */
+.video-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 10px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-family: 'Zain', sans-serif;
+  font-size: 18px;
+  transition: 0.3s all ease;
+}
+
+.tab:hover, .active-tab {
+  background: #ff2e63;
+  border-color: #ff2e63;
+  box-shadow: 0 0 15px rgba(255, 46, 99, 0.4);
+}
+
+/* Carousel Logic */
+.video-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.video-carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Video Card Styling */
+.video-card {
+  flex: 0 0 calc(33.333% - 20px); /* 3 per frame */
+  margin: 0 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  overflow: hidden;
+  text-align: left;
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Thumbnail & Play Overlay */
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.video-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-icon {
+  font-size: 40px;
+  color: white;
+  background: #ff2e63;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ff2e63;
+}
+
+/* Video Info */
+.video-info {
+  padding: 20px;
+}
+
+.vid-category {
+  color: #ff2e63;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.video-info h4 {
+  font-family: 'Merienda', cursive;
+  font-size: 18px;
+  margin: 10px 0;
+  color: white;
+}
+
+.video-info p {
+  font-family: 'Zain', sans-serif;
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.4;
+  height: 45px;
+  overflow: hidden;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+  background: none;
+  border: none;
+  color: #ff2e63;
+  font-size: 35px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.nav-arrow:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px #ff2e63;
+}
+
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+  .video-card { flex: 0 0 calc(50% - 20px); } /* 2 per frame on tablets */
+}
+
+@media (max-width: 768px) {
+  .videos-glass-container {
+    padding: 20px 10px;
+    background: transparent;
+    border: none;
+  }
+  .video-card {
+    flex: 0 0 100%; /* 1 per frame on mobile */
+    margin: 0;
+  }
+  .nav-arrow { display: none; } /* Use dots for mobile */
+  .video-info p { height: auto; }
+  .videos .carousel-dots {
+    display: none;
+  }
+  .video-carousel-wrapper {
+    overflow-x: auto !important; 
+    display: block;
+    -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for iOS */
+    scroll-snap-type: x mandatory;
+  }
+
+  .video-carousel-inner {
+    display: flex;
+    gap: 15px; /* Space between video cards */
+  }
+
+  .video-card {
+    flex: 0 0 90%; /* Show 90% of the card so the next one peaks out */
+    scroll-snap-align: center;
+    margin: 0 auto;
+  }
+
+  /* Hide arrows if they are still visible */
+  .nav-arrow {
+    display: none;
+  }
+}
+/* Pagination Dots for Videos */
+.carousel-dots {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 46, 99, 0.3);
+}
+
+.active-dot {
+  background-color: #ff2e63;
+  width: 30px; /* Makes the active dot an oblong pill shape */
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff2e63;
+}

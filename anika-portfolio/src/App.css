@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+  color:white;
+  min-height:100vh;
+
+  background:
+    linear-gradient(to top, #3a0a66 0%, #120022 35%, transparent 70%),
+    linear-gradient(to bottom, #3a0a66 0%, #120022 35%, transparent 70%),
+    linear-gradient(to left, #3a0a66 0%, #120022 35%, transparent 70%),
+    linear-gradient(to right, #3a0a66 0%, #120022 35%, transparent 70%),
+    #000000;
+}
+
+.logo{
+	height: 120px;
+  position: relative; /* Position must be relative/absolute for z-index to work */
+  z-index: 1;      /* Same level as your hamburger */
+}
+
+#home{
+  scroll-margin-top: 100px !important;
+}
+
+#about {
+  scroll-margin-top: 100px !important; /* Navbar height + 10px breathing room */
+}
+
+#videos {
+  scroll-margin-top: 100px !important;
+}
+
+#achievements {
+  scroll-margin-top: 100px !important;
+}
+
+#contact {
+  scroll-margin-top: 100px !important;
+}
+
+/* NAVBAR */
+
+.navbar{
+z-index: 2;
+font-size: 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding-right: 100px;
+background:black;
+position:sticky;
+top:0;
+animation:slideDown 1s ease;
+padding-left: 1vw;
+height: 100px;
+}
+
+@keyframes slideDown{
+from{transform:translateY(-100px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}
+
+.logo span{
+color:#ff2e63;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:.3s;
+display: block;
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 10px;
+}
+
+nav ul li a:hover{
+background-color: white;
+color:#ff2e63;
+}
+
+
+@media (width<768px){
+
+.logo{
+height:70px;
+}
+
+.navbar{
+padding-right:20px;
+height:80px;
+}
+
+/* hamburger visible */
+.hamburger{
+display:block;
+}
+
+/* hide menu initially */
+.nav-links{
+position:absolute;
+top:80px;
+right:0;
+background:black;
+width:100%;
+flex-direction:column;
+align-items:center;
+gap:20px;
+padding:20px 0;
+display:none;
+}
+
+/* show menu when active */
+.nav-links.active{
+display:flex;
+}
+}
+
+/* HERO */
+
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left; /* align text to left */
+  background-size: cover;
+  background-position: center;
+  padding: 0 10%;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+.hero-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-image {
+  flex: 1; /* right column */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #ff2e63;
+}
+
+.anika-dancing{
+	max-height: 550px;
+	max-width: 420px;
+	margin-right: 5vw;
+}
+.floating{
+  animation: float 3s ease-in-out infinite;
+}
+/* Adjust floating animation to text only if desired */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Apply float animation to text elements only */
+.boldheading {
+  animation: float 3s ease-in-out infinite;
+  font-family: "MonteCarlo", cursive; 
+  font-weight: 600;
+  font-size: 100px;
+}
+
+/* Text styles */
+.hero h1 {
+  font-family: "MonteCarlo", cursive;
+  font-size: 90px;
+}
+
+.hero h2 {
+  font-size: 50px;
+  margin-bottom: 50px;
+  line-height: 0;
+}
+
+.hero .highlight {
+  color: #ff2e63;
+}
+
+.hero p {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+/* BUTTON */
+
+.btn{
+padding:12px 10px;
+background:#ff2e63;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+border-radius:10px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px #ff2e63;
+}
+.hero-text .btn{
+display:block;
+margin: 20px auto 0;
+}
+@media (max-width: 768px){
+
+.hero{
+height:auto;
+padding:40px 20px;
+}
+
+.hero-content{
+flex-direction:column;
+text-align:center;
+gap:30px;
+}
+
+.hero-text{
+align-items:center;
+}
+
+.hero-image{
+justify-content:center;
+}
+
+.anika-dancing{
+height:auto;
+max-width:300px;
+margin-right:0;
+}
+.hero h1{
+font-size:50px;
+}
+
+.boldheading{
+font-size:60px;
+}
+
+.hero h2{
+font-size:28px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:16px;
+}
+}
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:black;
+margin-top:40px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}

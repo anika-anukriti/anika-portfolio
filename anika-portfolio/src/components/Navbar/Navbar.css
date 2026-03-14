@@ -1,0 +1,88 @@
+/* HAMBURGER CONTAINER */
+.hamburger {
+  display: none; /* Hidden on Desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001; /* Must be higher than nav-links z-index */
+  position: relative; /* Ensures it stays in the flow */
+}
+
+/* THE BARS - Ensure these have visible color and height */
+.bar {
+  display: block; /* Important: ensure it's not inline */
+  height: 3px;
+  width: 100%;
+  background-color: #ffffff !important; /* Forces it to be white */
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ACTIVE STATE (When X is shown) */
+.hamburger.active .bar {
+  background-color: #ff2e63 !important; /* Turns pink when active */
+}
+
+/* THE TRANSFORMATION */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); /* Darkens the background slightly */
+  backdrop-filter: blur(8px); /* The magic blur effect */
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  z-index: 0; /* Just below the hamburger and nav-links */
+}
+
+/* When the menu is open */
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MOBILE VIEW - The most important part */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex !important; /* Force display flex */
+    visibility: visible !important;
+  }
+  
+}
+
+.social-icon a {
+  font-size: 22px;
+  color: white;
+  transition: 0.3s;
+}
+
+.social-icon a:hover {
+  transform: scale(1.2);
+}
+
+.social-icon a:hover svg {
+  color: #ff2e63;
+}
+.social-icon a:hover {
+  color: #ff2e63;
+  text-shadow: 0 0 10px #ff2e63;
+}

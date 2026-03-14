@@ -1,0 +1,71 @@
+/* ABOUT */
+
+.about{
+padding-top:80px;
+padding-right: 10%;
+padding-left: 10%;
+text-align:center;
+}
+.about p {
+padding-left: 100px;
+padding-right: 100px;
+font-size: 22px;
+line-height: 1.4;
+}
+
+.section-heading{
+margin-bottom:20px;
+font-size:45px;
+color:#ff2e63;
+font-family: "Merienda", cursive;
+font-optical-sizing: auto;
+font-weight: 800;
+font-style: italic;
+}
+.about .about-me-p{
+font-family: "Zain", sans-serif;
+font-weight: 100;
+font-style: normal;
+margin-bottom: 10px;
+}
+.about .about-me-p .highlight {
+color:#ff2e63;
+font-weight: bolder;
+}
+.about .my-journey-p{
+font-family: "Zain", sans-serif;
+font-weight: 100;
+font-style: normal;
+}
+.about .my-journey-p .highlight {
+color:#ff2e63;
+font-weight: bolder;
+}
+.about-quote{
+  margin-bottom: 50px;
+}
+@media (max-width:768px){
+
+.about{
+padding-top:60px;
+padding-left:20px;
+padding-right:20px;
+}
+
+.section-heading{
+font-size:32px;
+}
+
+.about p{
+font-size:16px;
+padding:0;
+}
+
+.about .about-me-p{
+margin-bottom:10px;
+}
+.about-quote{
+  margin-bottom: 50px;
+}
+
+}
